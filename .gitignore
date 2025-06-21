@@ -1,0 +1,35 @@
+# Ignore video files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.flv
+*.wmv
+*.webm
+*.mpeg
+*.mpg
+*.m4v
+
+# Ignore image files
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.tiff
+*.bmp
+*.psd
+*.raw
+*.heic
+*.svg
+
+# If you have a folder for large media, ignore the entire folder (example)
+media/
+videos/
+images/
+
+# Optional: Ignore any backup or temporary files
+*.bak
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skylab - Transform Your Space</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#EF4E40',
+                        secondary: '#131516'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Archivo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Navigation Styles */
+        .nav_bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .nav_links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav_links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav_links a:hover {
+            color: #EF4E40;
+        }
+        
+        .btn_primary {
+            background: #EF4E40;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn_primary:hover {
+            background: #d63e30;
+            transform: translateY(-2px);
+        }
+        
+        .nav_toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        /* Hero Section */
+        .banner_section {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banner_section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero_container {
+            max-width: 800px;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .hero_content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Platypi', serif;
+        }
+        
+        .hero_content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn_containers {
+            margin-top: 2rem;
+        }
+        
+        .btn_gtSt button {
+            background: #EF4E40;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(239, 78, 64, 0.3);
+        }
+        
+        .btn_gtSt button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(239, 78, 64, 0.4);
+        }
+        
+        /* About Section */
+        .about_info {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+        
+        .main_Container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .inner_Container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .heading_Container h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            font-family: 'Platypi', serif;
+        }
+        
+        .heading_Container p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .img_container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Vision Mission Values */
+        .vvm_Container {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .vvm_content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .vvm_item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 16px;
+            background: #f8f9fa;
+            transition: transform 0.3s;
+        }
+        
+        .vvm_item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .vvm_icon {
+            width: 80px;
+            height: 80px;
+            background: #EF4E40;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .vvm_item h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .vvm_item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* How it Works */
+        .how_it_works {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .second_header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .second_header .descrp {
+            color: #EF4E40;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        .second_header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            font-family: 'Platypi', serif;
+        }
+        
+        .how_it_works_container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .how_it_works_item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .how_it_works_item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .item_icon {
+            width: 80px;
+            height: 80px;
+            background: #EF4E40;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .item_icon img {
+            width: 40px;
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .info_container h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .info_container p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Services Section */
+        .services_section {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .services_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service_card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .service_card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service_image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .service_content {
+            padding: 1.5rem;
+        }
+        
+        .service_content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .service_content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+        
+        .testimonials_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .testimonial_header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .testimonial_header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            font-family: 'Platypi', serif;
+        }
+        
+        .testimonial_header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .testimonials_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial_card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial_rating {
+            display: flex;
+            gap: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .star {
+            color: #fbbf24;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial_text {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial_author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author_avatar {
+            width: 50px;
+            height: 50px;
+            background: #EF4E40;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .author_info h4 {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .author_info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #131516;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer__content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer__brand-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #EF4E40;
+        }
+        
+        .footer__tagline {
+            color: #ccc;
+            line-height: 1.6;
+        }
+        
+        .footer__info-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer__column-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #EF4E40;
+        }
+        
+        .footer__service-link {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer__service-link:hover {
+            color: #EF4E40;
+        }
+        
+        .footer__social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer__social-link {
+            width: 40px;
+            height: 40px;
+            background: #EF4E40;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .footer__social-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        .footer__address-text {
+            color: #ccc;
+            line-height: 1.6;
+            font-style: normal;
+        }
+        
+        .footer__copyright-bar {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer__copyright-text {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav_toggle {
+                display: flex;
+            }
+            
+            .nav_links {
+                display: none;
+            }
+            
+            .hero_content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .inner_Container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer__content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav_bar">
+        <div class="nav_container">
+            <div class="logo">
+                <a href="#home">
+                    <h2 style="color: #EF4E40; font-weight: 700; font-family: 'Platypi', serif;">SKYLAB</h2>
+                </a>
+            </div>
+            <ul class="nav_links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#interior"><button class="btn_primary">Interior your Dream</button></a>
+            <div class="nav_toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="banner_section">
+        <div class="hero_container">
+            <div class="hero_content">
+                <div>
+                    <h1>Transform Your Space with Skylab</h1>
+                    <p>Functional. Personalized interiors designed to reflect your unique style and vision.</p>
+                </div>
+                <div class="btn_containers">
+                    <div class="btn_gtSt">
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about_info">
+        <div class="main_Container">
+            <div class="inner_Container">
+                <div class="heading_Container">
+                    <p style="color: #EF4E40; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">About Skylab</p>
+                    <h2>Creating Beautiful Spaces That Inspire</h2>
+                    <p>At Skylab, we believe that great design has the power to transform not just spaces, but lives. With years of experience in interior design and architecture, our team of creative professionals is dedicated to bringing your vision to life.</p>
+                    <br>
+                    <p>We specialize in creating functional, beautiful, and sustainable interiors that reflect your personality and lifestyle. From concept to completion, we handle every detail with precision and care, ensuring your space is everything you dreamed it would be.</p>
+                </div>
+                <div class="img_container">
+                    <div style="width: 100%; height: 400px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        <i class="ri-home-smile-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Mission Values -->
+    <section class="vvm_Container">
+        <div class="vvm_content">
+            <div class="vvm_item">
+                <div class="vvm_icon">
+                    <i class="ri-eye-line"></i>
+                </div>
+                <h3>Our Vision</h3>
+                <p>To be the leading interior design company that transforms spaces into extraordinary experiences, creating environments that inspire and elevate everyday living.</p>
+            </div>
+            <div class="vvm_item">
+                <div class="vvm_icon">
+                    <i class="ri-target-line"></i>
+                </div>
+                <h3>Our Mission</h3>
+                <p>We are committed to delivering exceptional design solutions that blend functionality with aesthetic appeal, while maintaining the highest standards of quality and customer satisfaction.</p>
+            </div>
+            <div class="vvm_item">
+                <div class="vvm_icon">
+                    <i class="ri-heart-line"></i>
+                </div>
+                <h3>Our Values</h3>
+                <p>Innovation, integrity, and excellence guide everything we do. We believe in sustainable design practices and building lasting relationships with our clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how_it_works">
+        <div class="container">
+            <div class="second_header">
+                <p class="descrp">How it works</p>
+                <h2>Visualize your ideas</h2>
+            </div>
+            <div class="how_it_works_container">
+                <div class="how_it_works_item">
+                    <div class="item_icon">
+                        <i class="ri-lightbulb-line" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <div class="info_container">
+                        <h3>Smooth Workflow</h3>
+                        <p>We create a personalized design that reflects your style and needs, ensuring a seamless process from start to finish.</p>
+                    </div>
+                </div>
+                <div class="how_it_works_item">
+                    <div class="item_icon">
+                        <i class="ri-user-star-line" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <div class="info_container">
+                        <h3>Qualified Designers</h3>
+                        <p>Our team of expert designers brings your vision to life with precision, creativity, and attention to detail.</p>
+                    </div>
+                </div>
+                <div class="how_it_works_item">
+                    <div class="item_icon">
+                        <i class="ri-palette-line" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <div class="info_container">
+                        <h3>High-end Design</h3>
+                        <p>We deliver premium quality designs that combine luxury with functionality for exceptional results.</p>
+                    </div>
+                </div>
+                <div class="how_it_works_item">
+                    <div class="item_icon">
+                        <i class="ri-shield-check-line" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <div class="info_container">
+                        <h3>Trusted Platform</h3>
+                        <p>Experience the transformation with confidence, backed by our commitment to excellence and customer satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services_section">
+        <div class="container">
+            <div class="second_header">
+                <p class="descrp">Our Services</p>
+                <h2>What We Offer</h2>
+            </div>
+            <div class="services_grid">
+                <div class="service_card">
+                    <div class="service_image">
+                        <i class="ri-home-4-line"></i>
+                    </div>
+                    <div class="service_content">
+                        <h3>Residential Interior</h3>
+                        <p>Transform your home into a beautiful, functional space that reflects your personal style and enhances your daily life.</p>
+                    </div>
+                </div>
+                <div class="service_card">
+                    <div class="service_image">
+                        <i class="ri-building-line"></i>
+                    </div>
+                    <div class="service_content">
+                        <h3>Commercial Interior</h3>
+                        <p>Create inspiring work environments that boost productivity and leave a lasting impression on clients and employees.</p>
+                    </div>
+                </div>
+                <div class="service_card">
+                    <div class="service_image">
+                        <i class="ri-stairs-line"></i>
+                    </div>
+                    <div class="service_content">
+                        <h3>Elevators</h3>
+                        <p>Premium elevator solutions with modern design and advanced technology for residential and commercial buildings.</p>
+                    </div>
+                </div>
+                <div class="service_card">
+                    <div class="service_image">
+                        <i class="ri-hammer-line"></i>
+                    </div>
+                    <div class="service_content">
+                        <h3>Construction</h3>
+                        <p>Complete construction services from planning to execution, ensuring quality and timely delivery of your project.</p>
+                    </div>
+                </div>
+                <div class="service_card">
+                    <div class="service_image">
+                        <i class="ri-sofa-line"></i>
+                    </div>
+                    <div class="service_content">
+                        <h3>UPVC & Furniture</h3>
+                        <p>Custom furniture manufacturing and UPVC solutions designed to meet your specific requirements and preferences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="testimonials_container">
+            <div class="testimonial_header">
+                <h2>What Our Clients Say</h2>
+                <p>We take pride in delivering exceptional service and quality to our clients.</p>
+            </div>
+            <div class="testimonials_grid">
+                <div class="testimonial_card">
+                    <div class="testimonial_rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial_text">"Skylab transformed our home beyond our expectations. Their attention to detail and creative vision made our dream home a reality. Highly recommended!"</p>
+                    <div class="testimonial_author">
+                        <div class="author_avatar">SM</div>
+                        <div class="author_info">
+                            <h4>Sarah Miller</h4>
+                            <p>Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial_card">
+                    <div class="testimonial_rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial_text">"Professional, reliable, and incredibly talented. The team at Skylab delivered our office renovation on time and within budget. Excellent work!"</p>
+                    <div class="testimonial_author">
+                        <div class="author_avatar">RJ</div>
+                        <div class="author_info">
+                            <h4>Raj Patel</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial_card">
+                    <div class="testimonial_rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial_text">"From concept to completion, Skylab was exceptional. They understood our vision and brought it to life beautifully. We couldn't be happier!"</p>
+                    <div class="testimonial_author">
+                        <div class="author_avatar">AP</div>
+                        <div class="author_info">
+                            <h4>Anita Sharma</h4>
+                            <p>Architect</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black text-white">
+        <div class="container mx-auto px-[30px]">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h5 class="text-primary font-medium mb-2">Get In Touch</h5>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Can't wait to know more? Let

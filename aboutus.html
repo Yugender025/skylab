@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skylab</title>
+    <!-- <link rel="stylesheet" href="assets/css/residential.css"> -->
+    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#EF4E40',secondary:'#131516'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+ <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-thin.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-solid.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-light.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-thin.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-solid.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-light.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-light.css"
+      >
+</head>
+<style>
+  /* Vision Mission Values */
+        .vvm_Container {
+            padding: 2rem 0;
+            background: white;
+        }
+        
+        .vvm_content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .vvm_item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 16px;
+            background: #f8f9fa;
+            transition: transform 0.3s;
+        }
+        
+        .vvm_item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .vvm_icon {
+            width: 80px;
+            height: 80px;
+            background: #EF4E40;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .vvm_item h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .vvm_item p {
+            color: #666;
+            line-height: 1.6;
+        }
+         /* Services Section */
+        .services_section {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .services_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service_card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .service_card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service_image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .service_content {
+            padding: 1.5rem;
+        }
+        
+        .service_content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .service_content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+        
+        .testimonials_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .testimonial_header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .testimonial_header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            font-family: 'Platypi', serif;
+        }
+        
+        .testimonial_header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .testimonials_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial_card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial_rating {
+            display: flex;
+            gap: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .star {
+            color: #fbbf24;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial_text {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial_author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author_avatar {
+            width: 50px;
+            height: 50px;
+            background: #EF4E40;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .author_info h4 {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .author_info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        /* About Section */
+        .about_info {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+        
+        .main_Container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .inner_Container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .heading_Container h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            font-family: 'Platypi', serif;
+        }
+        
+        .heading_Container p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .img_container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+</style>
+<body>
+    <nav class="nav_bar">
+        <div class="nav_container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo_rmbg_skylab.png" alt="skylab" style="width: 120px; height: 50px;">
+                </a>
+            </div>
+            <ul class="nav_links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <a href="#interior"><button class="btn_primary">Interior your Dream</button></a>
+        <div class="nav_toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+ <section class="banner_section">
+        <div class="hero_container">
+             <div class="hero_line">
+                <div></div>
+            </div>
+            <div class="hero_content">
+                <div>
+                    <h1>Transform Your Space with Skylab</h1>
+                <p>Functional. Personalized interiors designed to reflect your style.</p>
+                </div>
+                
+                <div class="btn_containers">
+                    <div class="btn_gtSt"><button>Get started</button></div>
+                  
+               </div>
+            </div>
+           
+        </div>
+    </section>
+   <section id="about" class="about_info">
+        <div class="main_Container">
+            <div class="inner_Container">
+                <div class="heading_Container">
+                    <p style="color: #EF4E40; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">About Skylab</p>
+                    <h2>Creating Beautiful Spaces That Inspire</h2>
+                    <p>At Skylab, we believe that great design has the power to transform not just spaces, but lives. With years of experience in interior design and architecture, our team of creative professionals is dedicated to bringing your vision to life.</p>
+                    <br>
+                    <p>We specialize in creating functional, beautiful, and sustainable interiors that reflect your personality and lifestyle. From concept to completion, we handle every detail with precision and care, ensuring your space is everything you dreamed it would be.</p>
+                </div>
+                <div class="img_container">
+                    <div style="width: 100%; height: 400px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        <i class="ri-home-smile-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="vvm_Container">
+
+    </section>
+    <section class="how_it_works">
+    <div class="container">
+        <div class="second_header">
+            
+            <p class="descrp">
+               How it works
+            </p>
+            <h2>Visualize your ideas </h2>
+        </div>
+        <div class="how_it_works_container">
+            <div class="how_it_works_item">
+                <div class="item_icon">  <img src="assets/images/img_srvc1.svg" alt=""></div>
+                <div class="info_container">
+                  <h3>Smooth workflow</h3>
+                  <p>We create a personalized design that reflects your style and needs.</p>
+                </div>
+                
+            </div>
+            <div class="how_it_works_item">
+                <div class="item_icon" ><img src="assets/images/img_srvc2.svg" alt=""></div>
+                <div class="info_container">
+                  <h3>Qualified Designers</h3>  
+                <p>Our team of experts brings your design to life with precision and care.</p>
+                </div>
+                
+            </div>
+            <div class="how_it_works_item">
+                <div class="item_icon">  <img src="assets/images/img_srvc3.svg" alt=""></div>
+                <div class="info_container">
+                  <h3>High-end Design</h3>
+                <p>We ensure a seamless delivery and installation process for your new space.</p>
+                </div>
+                
+            </div>
+            <div class="how_it_works_item">
+                <div class="item_icon">  <img src="assets/images/img_srvc4.svg" alt=""></div>
+                <div class="info_container">
+                  <h3>Trusted Platform</h3>
+                <p>Experience the transformation and enjoy your new space to the fullest.</p>
+                </div>
+                
+            </div>    
+       </div>
+
+</section>
+    <!-- Vision Mission Values -->
+    <section class="vvm_Container">
+        <div class="vvm_content">
+            <div class="vvm_item">
+                <div class="vvm_icon">
+                    <i class="ri-eye-line"></i>
+                </div>
+                <h3>Our Vision</h3>
+                <p>To be the leading interior design company that transforms spaces into extraordinary experiences, creating environments that inspire and elevate everyday living.</p>
+            </div>
+            <div class="vvm_item">
+                <div class="vvm_icon">
+                    <i style="font-size: 40px;
+  color: white;" class="ri-target-line"></i>
+                </div>
+                <h3>Our Mission</h3>
+                <p>We are committed to delivering exceptional design solutions that blend functionality with aesthetic appeal, while maintaining the highest standards of quality and customer satisfaction.</p>
+            </div>
+            <div class="vvm_item">
+                <div class="vvm_icon">
+                    <i class="ri-heart-line"></i>
+                </div>
+                <h3>Our Values</h3>
+                <p>Innovation, integrity, and excellence guide everything we do. We believe in sustainable design practices and building lasting relationships with our clients.</p>
+            </div>
+        </div>
+    </section>
+
+  
+  <section id="services" class="services_section">
+        <div class="container">
+            <div class="second_header">
+                <p class="descrp">Our Services</p>
+                <h2>What We Offer</h2>
+            </div>
+            <div class="services_grid">
+                <div class="service_card">
+                    <div class="service_image">
+                        <i class="ri-home-4-line"></i>
+                    </div>
+                    <div class="service_content">
+                        <h3>Residential Interior</h3>
+                        <p>Transform your home into a beautiful, functional space that reflects your personal style and enhances your daily life.</p>
+                    </div>
+                </div>
+                <div class="service_card">
+                    <div class="service_image">
+                        <i class="ri-building-line"></i>
+                    </div>
+                    <div class="service_content">
+                        <h3>Commercial Interior</h3>
+                        <p>Create inspiring work environments that boost productivity and leave a lasting impression on clients and employees.</p>
+                    </div>
+                </div>
+                <div class="service_card">
+                    <div class="service_image">
+                        <i class="ri-stairs-line"></i>
+                    </div>
+                    <div class="service_content">
+                        <h3>Elevators</h3>
+                        <p>Premium elevator solutions with modern design and advanced technology for residential and commercial buildings.</p>
+                    </div>
+                </div>
+                <div class="service_card">
+                    <div class="service_image">
+                        <i class="ri-hammer-line"></i>
+                    </div>
+                    <div class="service_content">
+                        <h3>Construction</h3>
+                        <p>Complete construction services from planning to execution, ensuring quality and timely delivery of your project.</p>
+                    </div>
+                </div>
+                <div class="service_card">
+                    <div class="service_image">
+                        <i class="ri-sofa-line"></i>
+                    </div>
+                    <div class="service_content">
+                        <h3>UPVC & Furniture</h3>
+                        <p>Custom furniture manufacturing and UPVC solutions designed to meet your specific requirements and preferences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <section class="testimonials">
+        <div class="testimonials_container">
+            <div class="testimonial_header">
+                <h2>What Our Clients Say</h2>
+                <p>We take pride in delivering exceptional service and quality to our clients.</p>
+            </div>
+            <div class="testimonials_grid">
+                <div class="testimonial_card">
+                    <div class="testimonial_rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial_text">"Skylab transformed our home beyond our expectations. Their attention to detail and creative vision made our dream home a reality. Highly recommended!"</p>
+                    <div class="testimonial_author">
+                        <div class="author_avatar">SM</div>
+                        <div class="author_info">
+                            <h4>Sarah Miller</h4>
+                            <p>Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial_card">
+                    <div class="testimonial_rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial_text">"Professional, reliable, and incredibly talented. The team at Skylab delivered our office renovation on time and within budget. Excellent work!"</p>
+                    <div class="testimonial_author">
+                        <div class="author_avatar">RJ</div>
+                        <div class="author_info">
+                            <h4>Raj Patel</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial_card">
+                    <div class="testimonial_rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial_text">"From concept to completion, Skylab was exceptional. They understood our vision and brought it to life beautifully. We couldn't be happier!"</p>
+                    <div class="testimonial_author">
+                        <div class="author_avatar">AP</div>
+                        <div class="author_info">
+                            <h4>Anita Sharma</h4>
+                            <p>Architect</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-20 bg-black text-white">
+<div class="container mx-auto px-[30px]">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div>
+<h5 class="text-primary font-medium mb-2">Get In Touch</h5>
+<h2 class="text-3xl md:text-4xl font-bold mb-6">Can't wait to know more? Let's talk!</h2>
+<p class="text-gray-300 mb-8">Interested in Skyla? Fill out the form, and our sales team will get back to you within 24 hours to answer your questions or schedule a site visit.</p>
+
+</div>
+<div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg">
+<h3 class="text-2xl font-bold mb-6">Enquire Now</h3>
+<form id="contact-form" method="post" autocomplete="off" name="modal-google-sheet">
+<div class="mb-4">
+<label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+<input type="text" id="name" class="w-full px-4 py-3 rounded bg-gray-50" placeholder="Enter your full name">
+</div>
+<div class="mb-4">
+<label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-3 rounded bg-gray-50" placeholder="Enter your email address">
+</div>
+<div class="mb-4">
+<label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+<input type="tel" id="phone" class="w-full px-4 py-3 rounded bg-gray-50" placeholder="Enter your phone number">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+<textarea id="message" rows="4" class="w-full px-4 py-3 rounded bg-gray-50" placeholder="Tell us about your requirements"></textarea>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3 !rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">Submit Enquiry</button>
+<div class="mt-4 flex justify-center">
+<a href="https://wa.me/8885554050" class="flex items-center text-green-600 font-medium">
+<i class="ri-whatsapp-line ri-lg mr-2"></i>
+Chat with us on WhatsApp
+</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__decoration-circle"></div>
+            <div class="footer__hero-image"></div>
+            
+            <div class="footer__content">
+                <div class="footer__brand-section">
+                    <div class="footer__logo"></div>
+                    <p class="footer__tagline">Building your home for your better future.</p>
+                </div>
+                
+                <div class="footer__info-columns">
+                    <div class="footer__column footer__services-column">
+                        <h3 class="footer__column-title">Services</h3>
+                        <div class="footer__services-list">
+                            <a href="#" class="footer__service-link">Residential Interior</a>
+                            <a href="#" class="footer__service-link">Commercial Interior</a>
+                            <a href="#" class="footer__service-link">Elevators</a>
+                            <a href="#" class="footer__service-link">Construction</a>
+                            <a href="#" class="footer__service-link">UPVC & Furniture Manufacturing</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer__column footer__social-column">
+                        <h3 class="footer__column-title">Social Links</h3>
+                        <div class="footer__social-links">
+                            <a href="#" class="footer__social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer__column footer__address-column">
+                        <h3 class="footer__column-title">Address</h3>
+                        <address class="footer__address-text">
+                            Hyderabad, Telangana<br>
+                            500070
+                        </address>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__copyright-bar">
+                <p class="footer__copyright-text">Designed by Digital win technologies | Copyright © 2025 SKYLA. All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- WhatsApp Button - positioned at bottom right -->
+<a href="https://wa.me/8885554050" class="fixed bottom-10 right-6 w-14 h-14 bg-green-500 rounded-full shadow-lg flex items-center justify-center hover:bg-green-600 transition-all z-50 group">
+  <i class="ri-whatsapp-line ri-2x text-white"></i>
+  <span class="absolute right-16 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">Chat with us</span>
+</a>
+<script src="assets/js/navbar.js"></script>
+<script src="assets/js/form.js"></script>
+    </body>
+    </html>

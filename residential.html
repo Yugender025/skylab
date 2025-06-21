@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skylab</title>
+    <link rel="stylesheet" href="assets/css/residential.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#EF4E40',secondary:'#131516'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Paytone+One&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+ <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-thin.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-solid.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-light.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-thin.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-solid.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-light.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-light.css"
+      >
+</head>
+<style>
+/* Hero Section Canvas */
+#canvas.canvas_fullscreen {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Heading on Canvas */
+.heading_canvas {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Perfect center */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+
+/* Heading Text and Image */
+.heading_img {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+span.header_canvas_join {
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 52px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Scroll Button */
+.btn {
+  position: relative;
+  margin-top: 30px;
+  left: 0;
+}
+
+.mouse {
+  width: 25px;
+  height: 40px;
+  border: 1px solid rgb(196, 196, 196);
+  background-color: transparent;
+  border-radius: 13px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.scroll {
+  width: 3px;
+  height: 10px;
+  background-color: rgb(196, 196, 196);
+  border-radius: 2px;
+  position: absolute;
+  bottom: 9px;
+  animation: move_918 1.5s linear infinite;
+}
+
+@keyframes move_918 {
+  0% { bottom: 9px; }
+  50% { bottom: 5px; }
+  100% { bottom: 9px; }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  span.header_canvas_join {
+    font-size: 42px;
+  }
+  .heading_canvas {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+  }
+}
+
+@media (max-width: 768px) {
+  span.header_canvas_join {
+    font-size: 36px;
+  }
+  .heading_img img {
+    width: 40px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  span.header_canvas_join {
+    font-size: 28px;
+    white-space: normal;
+  }
+  .heading_canvas {
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    padding: 0 15px;
+  }
+  .heading_img {
+    flex-direction: column;
+  }
+}
+
+
+</style>
+<body>
+     <nav class="nav_bar">
+        <div class="nav_container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo_rmbg_skylab.png" alt="skylab" style="width: 120px; height: 50px;">
+                </a>
+            </div>
+            <ul class="nav_links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="aboutus.html">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <a href="#contact"><button class="btn_primary">Interior your Dream</button></a>
+        <div class="nav_toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+    <section class="hero_section">
+
+        <div style="position: absolute; z-index: 1; display: flex;" class="heading_canvas"><span class="heading_img"><img src="assets/images/D_letter.svg" alt=""><span class="header_canvas_join">esign your space</span></span><span>     <div class="btn">
+          <button class="mouse">
+  <div class="scroll"></div>
+
+</button>
+        </div></span></div>
+   
+     
+      
+      <canvas style="overflow-x: hidden;" id="canvas" class="w-full h-auto block canvas_fullscreen"></canvas>
+    </section>
+    
+<div class="banner_section">
+    <div class="header_container">
+        <div class="header_main_container">
+            <div class="header_inner_Container">
+             <h1>More Than a Service, A Complete Transformation Experience</h1>
+            </div>
+       
+                <div class="description_container">
+                    <p>Functional. Personalized interiors designed to reflect your style.</p>
+                </div>
+        </div>
+        
+        <div class="btn_containers">
+            <div class="btn_gtSt"><button>Get started</button></div>
+            <div class="btn_cntct"><button>Explore services</button></div>
+        </div>
+    </div>
+</div>
+<!--how it works section-->
+<section class="how_it_works">
+    <div class="container">
+        <div class="second_header">
+            
+            <p class="descrp">
+               How it works
+            </p>
+            <h2>Visualize your ideas </h2>
+        </div>
+        <div class="how_it_works_container">
+            <div class="how_it_works_item">
+                <div class="item_icon">  <img src="assets/images/img_srvc1.svg" alt=""></div>
+                <div class="info_container">
+                  <h3>Smooth workflow</h3>
+                  <p>We create a personalized design that reflects your style and needs.</p>
+                </div>
+                
+            </div>
+            <div class="how_it_works_item">
+                <div class="item_icon" ><img src="assets/images/img_srvc2.svg" alt=""></div>
+                <div class="info_container">
+                  <h3>Qualified Designers</h3>  
+                <p>Our team of experts brings your design to life with precision and care.</p>
+                </div>
+                
+            </div>
+            <div class="how_it_works_item">
+                <div class="item_icon">  <img src="assets/images/img_srvc3.svg" alt=""></div>
+                <div class="info_container">
+                  <h3>High-end Design</h3>
+                <p>We ensure a seamless delivery and installation process for your new space.</p>
+                </div>
+                
+            </div>
+            <div class="how_it_works_item">
+                <div class="item_icon">  <img src="assets/images/img_srvc4.svg" alt=""></div>
+                <div class="info_container">
+                  <h3>Trusted Platform</h3>
+                <p>Experience the transformation and enjoy your new space to the fullest.</p>
+                </div>
+                
+            </div>    
+       </div>
+
+</section>
+<!--section_video-->
+<section class="intro_video">
+    <div class="video_frame">
+  <video autoplay muted loop playsinline src="assets/images/interior_design.mp4"></video>
+</div>
+
+</section>
+<div class="noise-overlay"></div>
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+    </div>
+
+    <div id="services" class="container">
+        <div class="header">
+            <!-- <div class="tagline">Luxury • Innovation • Design</div> -->
+            <h1 class="main-title">Transform Your Space into a Luxurious Experience</h1>
+            <p class="subtitle">Where premium design meets functionality, creating spaces that inspire and elevate your lifestyle</p>
+        </div>
+        
+        <div class="content">
+            <div class="services-section">
+                <!-- <h2 class="section-title">Our Premium Services</h2> -->
+                <div class="services-list">
+                    <div class="service-item active loading" data-image="office" style="animation-delay: 0.1s">
+                        <div class="service-content">
+                            <span class="service-number">01</span>
+                            <div class="service-details">
+                                <div class="service-name">Living Room Interiors</div>
+                                <div class="service-description">Elegant seating and decor for relaxing moments</div>
+                            </div>
+                        </div>
+                        <span class="service-arrow">↗</span>
+                    </div>
+                    
+                    <div class="service-item loading" data-image="commercial" style="animation-delay: 0.2s">
+                        <div class="service-content">
+                            <span class="service-number">02</span>
+                            <div class="service-details">
+                                <div class="service-name">Bedroom Interiors</div>
+                                <div class="service-description">Cozy, personalized spaces for peaceful night sleep</div>
+                            </div>
+                        </div>
+                        <span class="service-arrow">↗</span>
+                    </div>
+                    
+                    <div class="service-item loading" data-image="retail" style="animation-delay: 0.3s">
+                        <div class="service-content">
+                            <span class="service-number">03</span>
+                            <div class="service-details">
+                                <div class="service-name">Modular Kitchen Design</div>
+                                <div class="service-description">Efficient kitchen layouts with smart storage solutions</div>
+                            </div>
+                        </div>
+                        <span class="service-arrow">↗</span>
+                    </div>
+                    
+                    <div class="service-item loading" data-image="hospitality" style="animation-delay: 0.4s">
+                        <div class="service-content">
+                            <span class="service-number">04</span>
+                            <div class="service-details">
+                                <div class="service-name">Dining Room Design</div>
+                                <div class="service-description">Comfortable dining areas with stylish furniture pieces</div>
+                            </div>
+                        </div>
+                        <span class="service-arrow">↗</span>
+                    </div>
+                    
+                    <div class="service-item loading" data-image="corporate" style="animation-delay: 0.5s">
+                        <div class="service-content">
+                            <span class="service-number">05</span>
+                            <div class="service-details">
+                                <div class="service-name"> Bathroom Interiors</div>
+                                <div class="service-description">Modern bathrooms with storage and luxury fittings</div>
+                            </div>
+                        </div>
+                        <span class="service-arrow">↗</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-section">
+                <div class="image-container">
+                    <img src="assets/images/modern-living-room-with-orange-accent-walls-furniture-bold-colors-sleek-design-create-stylish-comfortable-space-highresolution-photography.jpg" alt="Executive Office Interior" class="room-image" id="office-image">
+                    <img src="assets/images/modern-luxury-bedroom-interior.jpg" alt="Commercial Interior" class="room-image hidden" id="commercial-image">
+                    <img src="assets/images/modern-kitchen-design-kitchen-counter-wooden-floor-interior-desing-shoots-kitchen-counter.jpg" alt="Luxury Retail Space" class="room-image hidden" id="retail-image">
+                    <img src="assets/images/illustration-dining-room-interior.jpg" alt="Restaurant Interior" class="room-image hidden" id="hospitality-image">
+                    <img src="assets/images/bathroom-with-bathtub.jpg" alt="Corporate Office" class="room-image hidden" id="corporate-image">
+                    
+                    <div class="image-overlay">
+                        <div class="image-title" id="current-title">Living Room Interiors Design</div>
+                        <div class="image-subtitle" id="current-subtitle">Are you looking for stylish living room interiors?</div>
+                        <button class="cta-button" id="main-cta">
+                            Start Your Project
+                            <span class="cta-arrow">↗</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    <section class="second_banner">
+
+    </section>
+    <!--contact form-->
+
+    <section id="contact" class="py-20 bg-black text-white">
+<div class="container mx-auto px-[30px]">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div>
+<h5 class="text-primary font-medium mb-2">Get In Touch</h5>
+<h2 class="text-3xl md:text-4xl font-bold mb-6">Can't wait to know more? Let's talk!</h2>
+<p class="text-gray-300 mb-8">Interested in Skyla? Fill out the form, and our sales team will get back to you within 24 hours to answer your questions or schedule a site visit.</p>
+
+</div>
+<div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg">
+<h3 class="text-2xl font-bold mb-6">Enquire Now</h3>
+<form id="contact-form" method="post" autocomplete="off" name="modal-google-sheet">
+<div class="mb-4">
+<label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+<input type="text" id="name" class="w-full px-4 py-3 rounded bg-gray-50" placeholder="Enter your full name">
+</div>
+<div class="mb-4">
+<label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-3 rounded bg-gray-50" placeholder="Enter your email address">
+</div>
+<div class="mb-4">
+<label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+<input type="tel" id="phone" class="w-full px-4 py-3 rounded bg-gray-50" placeholder="Enter your phone number">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+<textarea id="message" rows="4" class="w-full px-4 py-3 rounded bg-gray-50" placeholder="Tell us about your requirements"></textarea>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3 !rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">Submit Enquiry</button>
+<div class="mt-4 flex justify-center">
+<a href="https://wa.me/8885554050" class="flex items-center text-green-600 font-medium">
+<i class="ri-whatsapp-line ri-lg mr-2"></i>
+Chat with us on WhatsApp
+</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__decoration-circle"></div>
+            <div class="footer__hero-image"></div>
+            
+            <div class="footer__content">
+                <div class="footer__brand-section">
+                    <div class="footer__logo"></div>
+                    <p class="footer__tagline">Building your home for your better future.</p>
+                </div>
+                
+                <div class="footer__info-columns">
+                    <div class="footer__column footer__services-column">
+                        <h3 class="footer__column-title">Services</h3>
+                        <div class="footer__services-list">
+                            <a href="#" class="footer__service-link">Residential Interior</a>
+                            <a href="#" class="footer__service-link">Commercial Interior</a>
+                            <a href="#" class="footer__service-link">Elevators</a>
+                            <a href="#" class="footer__service-link">Construction</a>
+                            <a href="#" class="footer__service-link">UPVC & Furniture Manufacturing</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer__column footer__social-column">
+                        <h3 class="footer__column-title">Social Links</h3>
+                        <div class="footer__social-links">
+                            <a href="#" class="footer__social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer__column footer__address-column">
+                        <h3 class="footer__column-title">Address</h3>
+                        <address class="footer__address-text">
+                            Hyderabad, Telangana<br>
+                            500070
+                        </address>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__copyright-bar">
+                <p class="footer__copyright-text">Designed by Digital win technologies | Copyright © 2025 SKYLA. All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- WhatsApp Button - positioned at bottom right -->
+<a href="https://wa.me/8885554050" class="fixed bottom-10 right-6 w-14 h-14 bg-green-500 rounded-full shadow-lg flex items-center justify-center hover:bg-green-600 transition-all z-50 group">
+  <i class="ri-whatsapp-line ri-2x text-white"></i>
+  <span class="absolute right-16 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">Chat with us</span>
+</a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+  <script>
+  const canvas = document.getElementById('canvas');
+  const context = canvas.getContext('2d');
+
+  const frameCount = 298;
+  const currentFrame = index => `Skyla_Images/Skyla_Images ${String(index + 1).toString().padStart(3, '0')}.jpg`;
+
+  const images = [];
+  const imageSeq = {
+    frame: 0
+  };
+
+  // Preload images
+  for (let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    img.src = currentFrame(i);
+    images.push(img);
+  }
+
+  // Draw the first image
+  images[0].onload = render;
+
+  function render() {
+    const img = images[imageSeq.frame];
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+  }
+
+  gsap.to(imageSeq, {
+    frame: frameCount - 1,
+    snap: "frame",
+    ease: "none",
+    scrollTrigger: {
+      scrub: true,
+      trigger: canvas,
+      start: "top top",
+      end: "+=1500", // Adjust scroll distance as needed
+      pin: true,
+    },
+    onUpdate: render
+  });
+</script>
+<script>
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  // Initial resize
+  resizeCanvas();
+
+  // Resize when window size changes
+  window.addEventListener('resize', resizeCanvas);
+</script>
+<script>
+    $(function () { // wait for document ready
+  
+  var controller = new ScrollMagic.Controller();
+
+  var horizontalSlide = new TimelineMax()
+  // animate panels
+  .to("#js-slideContainer", 1,   {x: "-20%"})	
+  .to("#js-slideContainer", 1,   {x: "-40%"})
+  .to("#js-slideContainer", 1,   {x: "-60%"})
+  .to("#js-slideContainer", 1,   {x: "-80%"})
+
+
+  // create scene to pin and link animation
+  new ScrollMagic.Scene({
+    triggerElement: "#js-wrapper",
+    triggerHook: "onLeave",
+    duration: "400%"
+  })
+    .setPin("#js-wrapper")
+    .setTween(horizontalSlide)
+    //.addIndicators() // add indicators (requires plugin)
+    .addTo(controller);
+  
+  
+  
+});
+</script>
+<script src="assets/js/navbar.js"></script>
+<script src="assets/js/residential.js"></script>
+</body>
+</html>
