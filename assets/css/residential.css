@@ -27,27 +27,59 @@ body{
   justify-content: flex-start;
   text-align: center;
 }
-
+.UPVCbanner_section{
+   background-image: url('../images/uvpc.jpg');
+  position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
+  padding: 5rem 2rem;
+  
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+}
+.constbanner_section{
+  background-image: url('../images/constrction.jpg');
+  position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
+  padding: 5rem 2rem;
+  /* display: flex; */
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+}
+/* Base styles */
 .header_container {
   max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .header_container h1 {
   font-size: 2.5rem;
   font-weight: 600;
-  color: #ffffff; /* near-black */
+  color: #ffffff;
   margin-bottom: 1rem;
   text-align: start;
+  line-height: 1.2;
 }
+
 .header_main_container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
 }
+
 .description_container p {
   font-size: 1.2rem;
-  color: #ffffff; /* gray-600 */
+  color: #ffffff;
   margin-bottom: 2rem;
+  line-height: 1.5;
 }
 
 .btn_containers {
@@ -55,6 +87,7 @@ body{
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 1rem;
+  width: 100%;
 }
 
 .btn_gtSt button,
@@ -66,6 +99,8 @@ body{
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 120px;
+  white-space: nowrap;
 }
 
 .btn_gtSt button {
@@ -74,7 +109,8 @@ body{
 }
 
 .btn_gtSt button:hover {
-  background-color: #D5AF32;
+  background-color: #B8961A;
+  transform: translateY(-2px);
 }
 
 .btn_cntct button {
@@ -86,6 +122,102 @@ body{
 .btn_cntct button:hover {
   background-color: #D5AF32;
   color: white;
+  transform: translateY(-2px);
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .header_container {
+    max-width: 100%;
+    padding: 0 1.5rem;
+  }
+  
+  .header_container h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .header_main_container {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .description_container p {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+  .btn_containers {
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .header_container {
+    padding: 0 1rem;
+  }
+  
+  .header_container h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .description_container p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn_containers {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  
+  .btn_gtSt button,
+  .btn_cntct button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    min-width: unset;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .header_container {
+    max-width: 900px;
+  }
+  
+  .header_container h1 {
+    font-size: 3rem;
+  }
+  
+  .description_container p {
+    font-size: 1.3rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+  .header_container {
+    padding: 0 0.75rem;
+  }
+  
+  .header_container h1 {
+    font-size: 1.5rem;
+  }
+  
+  .description_container p {
+    font-size: 0.9rem;
+  }
+  
+  .btn_gtSt button,
+  .btn_cntct button {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+  }
 }
 .video_frame {
   width: 100%;

@@ -81,236 +81,524 @@
 </head>
 <style>
   /* Vision Mission Values */
-        .vvm_Container {
-            padding: 2rem 0;
-            background: white;
-        }
-        
-        .vvm_content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-        
-        .vvm_item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 16px;
-            background: #f8f9fa;
-            transition: transform 0.3s;
-        }
-        
-        .vvm_item:hover {
-            transform: translateY(-10px);
-        }
-        
-        .vvm_icon {
-            width: 80px;
-            height: 80px;
-            background: #EF4E40;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: white;
-        }
-        
-        .vvm_item h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        
-        .vvm_item p {
-            color: #666;
-            line-height: 1.6;
-        }
-         /* Services Section */
-        .services_section {
-            padding: 6rem 0;
-            background: white;
-        }
-        
-        .services_grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .service_card {
-            background: #f8f9fa;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-        
-        .service_card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service_image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-        }
-        
-        .service_content {
-            padding: 1.5rem;
-        }
-        
-        .service_content h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        
-        .service_content p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 6rem 0;
-            background: #f8f9fa;
-        }
-        
-        .testimonials_container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .testimonial_header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .testimonial_header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 1rem;
-            font-family: 'Platypi', serif;
-        }
-        
-        .testimonial_header p {
-            font-size: 1.1rem;
-            color: #666;
-        }
-        
-        .testimonials_grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .testimonial_card {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .testimonial_rating {
-            display: flex;
-            gap: 0.3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .star {
-            color: #fbbf24;
-            font-size: 1.2rem;
-        }
-        
-        .testimonial_text {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-        
-        .testimonial_author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .author_avatar {
-            width: 50px;
-            height: 50px;
-            background: #EF4E40;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .author_info h4 {
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .author_info p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        /* About Section */
-        .about_info {
-            padding: 6rem 0;
-            background: #f8f9fa;
-        }
-        
-        .main_Container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .inner_Container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .heading_Container h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 1rem;
-            font-family: 'Platypi', serif;
-        }
-        
-        .heading_Container p {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.8;
-        }
-        
-        .img_container img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
+.vvm_Container {
+    padding: 2rem 0;
+    background: white;
+}
+
+.vvm_content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.vvm_item {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 16px;
+    background: #f8f9fa;
+    transition: transform 0.3s;
+}
+
+.vvm_item:hover {
+    transform: translateY(-10px);
+}
+
+.vvm_icon {
+    width: 80px;
+    height: 80px;
+    background: #EF4E40;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.vvm_item h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.vvm_item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Services Section */
+.services_section {
+    padding: 6rem 0;
+    background: white;
+}
+
+.services_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service_card {
+    background: #f8f9fa;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.service_card:hover {
+    transform: translateY(-10px);
+}
+
+.service_image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.service_content {
+    padding: 1.5rem;
+}
+
+.service_content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.service_content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 6rem 0;
+    background: #f8f9fa;
+}
+
+.testimonials_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.testimonial_header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.testimonial_header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+    font-family: 'Platypi', serif;
+}
+
+.testimonial_header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.testimonials_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial_card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.testimonial_rating {
+    display: flex;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.star {
+    color: #fbbf24;
+    font-size: 1.2rem;
+}
+
+.testimonial_text {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.testimonial_author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author_avatar {
+    width: 50px;
+    height: 50px;
+    background: #EF4E40;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+.author_info h4 {
+    font-weight: 600;
+    color: #333;
+}
+
+.author_info p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* About Section */
+.about_info {
+    padding: 6rem 0;
+    background: #f8f9fa;
+}
+
+.main_Container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.inner_Container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.heading_Container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+    font-family: 'Platypi', serif;
+}
+
+.heading_Container p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.img_container img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* ===== RESPONSIVE MEDIA QUERIES ===== */
+
+/* Large Tablets and Small Desktops (1024px and below) */
+@media (max-width: 1024px) {
+    .vvm_content {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    
+    .services_grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    
+    .testimonials_grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    
+    .inner_Container {
+        gap: 3rem;
+    }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+    /* Reduce section padding */
+    .vvm_Container,
+    .services_section,
+    .testimonials,
+    .about_info {
+        padding: 4rem 0;
+    }
+    
+    /* Container padding */
+    .vvm_content,
+    .main_Container,
+    .testimonials_container {
+        padding: 0 1.5rem;
+    }
+    
+    /* Grid layouts - single column on tablets */
+    .vvm_content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .services_grid {
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
+    }
+    
+    .testimonials_grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .inner_Container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Typography adjustments */
+    .testimonial_header h2,
+    .heading_Container h2 {
+        font-size: 2rem;
+    }
+    
+    .vvm_item h3 {
+        font-size: 1.3rem;
+    }
+    
+    .service_content h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Card padding */
+    .vvm_item {
+        padding: 1.5rem;
+    }
+    
+    .testimonial_card {
+        padding: 1.5rem;
+    }
+    
+    .service_content {
+        padding: 1.25rem;
+    }
+    
+    /* Image adjustments */
+    .img_container img {
+        height: 300px;
+    }
+    
+    .service_image {
+        height: 180px;
+        font-size: 2.5rem;
+    }
+    
+    /* Icon size */
+    .vvm_icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+    
+    /* Testimonial header */
+    .testimonial_header {
+        margin-bottom: 3rem;
+    }
+}
+
+/* Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+    /* Further reduce section padding */
+    .vvm_Container,
+    .services_section,
+    .testimonials,
+    .about_info {
+        padding: 3rem 0;
+    }
+    
+    /* Container padding */
+    .vvm_content,
+    .main_Container,
+    .testimonials_container {
+        padding: 0 1rem;
+    }
+    
+    /* Typography - smaller sizes */
+    .testimonial_header h2,
+    .heading_Container h2 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .testimonial_header p,
+    .heading_Container p {
+        font-size: 1rem;
+    }
+    
+    .vvm_item h3 {
+        font-size: 1.2rem;
+    }
+    
+    .service_content h3 {
+        font-size: 1.1rem;
+    }
+    
+    /* Reduced padding */
+    .vvm_item {
+        padding: 1.25rem;
+    }
+    
+    .testimonial_card {
+        padding: 1.25rem;
+    }
+    
+    .service_content {
+        padding: 1rem;
+    }
+    
+    /* Image adjustments */
+    .img_container img {
+        height: 250px;
+        border-radius: 12px;
+    }
+    
+    .service_image {
+        height: 160px;
+        font-size: 2rem;
+    }
+    
+    /* Icon adjustments */
+    .vvm_icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Card border radius */
+    .vvm_item,
+    .service_card,
+    .testimonial_card {
+        border-radius: 12px;
+    }
+    
+    /* Testimonial author */
+    .author_avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .author_info h4 {
+        font-size: 0.95rem;
+    }
+    
+    .author_info p {
+        font-size: 0.8rem;
+    }
+    
+    /* Reduced gaps */
+    .vvm_content {
+        gap: 1.5rem;
+    }
+    
+    .services_grid,
+    .testimonials_grid {
+        gap: 1.5rem;
+    }
+    
+    .inner_Container {
+        gap: 1.5rem;
+    }
+    
+    /* Testimonial header */
+    .testimonial_header {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Small Mobile Devices (360px and below) */
+@media (max-width: 360px) {
+    /* Minimum padding */
+    .vvm_Container,
+    .services_section,
+    .testimonials,
+    .about_info {
+        padding: 2rem 0;
+    }
+    
+    /* Minimum container padding */
+    .vvm_content,
+    .main_Container,
+    .testimonials_container {
+        padding: 0 0.75rem;
+    }
+    
+    /* Minimum typography */
+    .testimonial_header h2,
+    .heading_Container h2 {
+        font-size: 1.6rem;
+    }
+    
+    /* Minimum padding */
+    .vvm_item,
+    .testimonial_card {
+        padding: 1rem;
+    }
+    
+    .service_content {
+        padding: 0.75rem;
+    }
+    
+    /* Minimum image height */
+    .img_container img {
+        height: 200px;
+    }
+    
+    .service_image {
+        height: 140px;
+        font-size: 1.8rem;
+    }
+    
+    /* Minimum icon size */
+    .vvm_icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Hover effects - disable on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .vvm_item:hover,
+    .service_card:hover {
+        transform: none;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .img_container img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
 </style>
 <body>
     <nav class="nav_bar">
@@ -622,11 +910,11 @@ Chat with us on WhatsApp
                     <div class="footer__column footer__services-column">
                         <h3 class="footer__column-title">Services</h3>
                         <div class="footer__services-list">
-                            <a href="#" class="footer__service-link">Residential Interior</a>
-                            <a href="#" class="footer__service-link">Commercial Interior</a>
-                            <a href="#" class="footer__service-link">Elevators</a>
-                            <a href="#" class="footer__service-link">Construction</a>
-                            <a href="#" class="footer__service-link">UPVC & Furniture Manufacturing</a>
+                            <a href="residential.html" class="footer__service-link">Residential Interior</a>
+                            <a href="commerical.html" class="footer__service-link">Commercial Interior</a>
+                            <a href="https://sequalelevators.in/" class="footer__service-link">Elevators</a>
+                            <a href="construction.html" class="footer__service-link">Construction</a>
+                            <a href="upvc.html" class="footer__service-link">UPVC & Furniture Manufacturing</a>
                         </div>
                     </div>
                     
@@ -648,8 +936,7 @@ Chat with us on WhatsApp
                     <div class="footer__column footer__address-column">
                         <h3 class="footer__column-title">Address</h3>
                         <address class="footer__address-text">
-                            Hyderabad, Telangana<br>
-                            500070
+                            Shop no:4 Srivani Nagar, Ganesh Nagar, Ameenpur, Miyapur, Hyderabad, Telangana 502032
                         </address>
                     </div>
                 </div>
