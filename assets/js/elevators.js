@@ -5,25 +5,29 @@ const currentTitle = document.getElementById("current-title");
 const currentSubtitle = document.getElementById("current-subtitle");
 
 const serviceData = {
-  livingRoom: {
-    title: "Living Room Interiors",
-    subtitle: "Elegant seating and decor for relaxing moments",
+  residential: {
+    title: "Residential Elevators",
+    subtitle: "Elegant and space-saving elevators for homes and apartments",
   },
-  bedroom: {
-    title: "Bedroom Interiors",
-    subtitle: "Cozy, personalized spaces for peaceful night sleep",
+  commercial: {
+    title: "Commercial Elevators",
+    subtitle:
+      "Reliable, high-capacity elevators for offices and commercial spaces",
   },
-  modularKitchen: {
-    title: "Modular Kitchen Design",
-    subtitle: "Efficient kitchen layouts with smart storage solutions",
+  hospital: {
+    title: "Hospital Elevators",
+    subtitle:
+      "Smooth and spacious elevators built for stretchers and medical equipment",
   },
-  diningRoom: {
-    title: "Dining Room Design",
-    subtitle: "Comfortable dining areas with stylish furniture pieces",
+  freight: {
+    title: "Freight Elevators",
+    subtitle:
+      "Heavy-duty elevators for industrial use and safe transport of goods",
   },
-  bathroom: {
-    title: "Bathroom Interiors",
-    subtitle: "Modern bathrooms with storage and luxury fittings",
+  maintenance: {
+    title: "Maintenance & Modernization",
+    subtitle:
+      "Professional upkeep and modernization to extend elevator lifespan",
   },
 };
 

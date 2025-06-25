@@ -31,6 +31,22 @@ body{
   justify-content: flex-start;
   text-align: center;
 }
+.Elevatorsbanner_section {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.4),  /* top gradient color with opacity */
+      rgba(0, 0, 0, 0.4)   /* bottom gradient color with opacity */
+    ),
+    url('../images/elevators_banner.jpg') center center / cover no-repeat;
+  position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
+  padding: 5rem 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+}
 .hero_content {
     display: flex;
     flex-direction: column;
