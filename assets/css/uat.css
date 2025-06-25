@@ -1,76 +1,73 @@
- @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap');
-html{
-     font-family: "Platypi", serif;
-     margin: 0 auto;
-     padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap');
+
+html, body {
+    font-family: "Platypi", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
 }
-body{
-     font-family: "Platypi", serif;
-     margin: 0 auto;
-     padding: 0;
-     background-color: #f0f0f0;
-}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
- .service_container {
+
+.service_container {
     background: url('../images/yellow-door-room.png') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
-    position: relative;
-    overflow: hidden;
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .inner_container {
     display: flex;
     justify-content: flex-end;
-    padding-right: 5%; /* Add some padding from the right edge */
+    padding: 0 5%;
+    width: 100%;
 }
 
 .main_ServiceContainer {
-    max-width: 50%;
-    margin: 0;  /* Remove auto margin */
+    max-width: 600px;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1.5rem;
-    position: relative;
-    z-index: 2;
     flex-direction: column;
+    gap: 1.5rem;
     padding: 2rem;
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    border-radius: 16px;
+    /* backdrop-filter: blur(8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); */
 }
 
 .header_section {
-    flex: 1;
-    max-width: 500px;
-}
-
-.header_container {
-    margin-bottom: 40px;
+    max-width: 100%;
 }
 
 .text-wrapper h2 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: #2C2C2C;
-    line-height: 1.1;
     margin-bottom: 20px;
+    line-height: 1.1;
 }
 
 .we-design-and-craft {
     font-size: 1.25rem;
     color: #2C2C2C;
+    opacity: 0.85;
     line-height: 1.6;
-    opacity: 0.8;
 }
 
+.btn_gtSt {
+    margin-top: 20px;
+}
 .btn_gtSt button {
     background: rgba(255, 255, 255, 0.9);
     border: none;
-    padding: 16px 32px;
+    padding: 14px 28px;
     border-radius: 50px;
     font-size: 1rem;
     font-weight: 600;
@@ -81,17 +78,15 @@ body{
 }
 
 .btn_gtSt button:hover {
-    background: rgba(255, 255, 255, 1);
+    background: white;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .inner_Container {
-    flex: 1;
-    max-width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 1rem;
 }
 
 .servc_ct {
@@ -140,13 +135,9 @@ body{
     transition: color 0.3s ease;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .main_ServiceContainer {
-        flex-direction: column;
-        gap: 60px;
-    }
+/* ---------- RESPONSIVE MEDIA QUERIES ---------- */
 
+@media (max-width: 1024px) {
     .text-wrapper h2 {
         font-size: 3rem;
     }
@@ -157,13 +148,14 @@ body{
 }
 
 @media (max-width: 768px) {
-    .service_container {
-        padding: 60px 20px;
-    }
-    
     .inner_container {
-        justify-content: center; /* Center on mobile for better layout */
-        padding-right: 0;
+        justify-content: center;
+        padding: 0 1rem;
+    }
+
+    .main_ServiceContainer {
+        padding: 1.5rem;
+        gap: 1rem;
     }
 
     .text-wrapper h2 {
@@ -175,32 +167,22 @@ body{
     }
 
     .servc_ct {
-        padding: 20px 0;
+        padding: 12px 0;
     }
 
     .text-wrapper-4 {
         width: 45px;
         height: 45px;
     }
-
-    .geometric-shape-1,
-    .geometric-shape-2,
-    .geometric-shape-3 {
-        display: none;
-    }
 }
 
 @media (max-width: 480px) {
-    .service_container {
-        padding: 40px 15px;
-    }
-
     .text-wrapper h2 {
         font-size: 2rem;
     }
 
     .we-design-and-craft {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .text-wrapper-3 {
@@ -208,7 +190,12 @@ body{
     }
 
     .btn_gtSt button {
-        padding: 14px 28px;
+        padding: 12px 24px;
         font-size: 0.9rem;
+    }
+
+    .main_ServiceContainer {
+        padding: 1rem;
+        border-radius: 12px;
     }
 }
