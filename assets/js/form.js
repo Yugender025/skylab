@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       // Google Script URL
       const scriptURL =
-        "https://script.google.com/macros/s/AKfycbwfZgQq9yJEl7IQBCc4d3y4pdLs50V5JG-ELxdYed7zuIdU7etWxya1HEImqskNNZCc/exec";
+        "https://script.google.com/macros/s/AKfycbxR1MOVe3jeSdpNLRVJjbNS35P6Tb3X3XsWoEL0LTB8cP_aglMHHPTsxUhsuyLRsFJVPw/exec";
 
       // Add form name attribute value to formData
       const formData = new FormData(contactForm);
